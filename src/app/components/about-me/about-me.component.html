@@ -1,0 +1,54 @@
+<section class="aboutme-area" id="sobre-mi">
+  <div class="container-fluid aboutme-container">
+    <div class="row align-items-center g-5">
+
+      <!-- Left: Texto -->
+      <div class="col-lg-4 col-md-12">
+        <div class="aboutme-section-content">
+          <span class="section-icon">
+            <i class="ri-file-list-3-line"></i> Sobre mí
+          </span>
+          <h2>Soy desarrolladora Full Stack</h2>
+          <p>
+            Soy una desarrolladora Full Stack con experiencia en el desarrollo de aplicaciones web
+            robustas y escalables. Me especializo en tecnologías .NET y Angular, con sólidos
+            conocimientos en bases de datos y servicios en la nube.
+          </p>
+          <p>
+            Me motiva aprender constantemente y enfrentar nuevos desafíos que me permitan crecer
+            profesionalmente y aportar valor a los proyectos.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right: Tarjetas + Tech Stack -->
+      <div class="col-lg-8 col-md-12">
+        <div class="contain-aboutme-item">
+
+          <div class="aboutme-item" *ngFor="let stat of stats">
+            <div class="aboutme-image">
+              <i [class]="stat.icon"></i>
+            </div>
+            <div class="aboutme-content">
+              <h3>{{ stat.value }}</h3>
+              <p>{{ stat.label }}</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="tech-stack-box">
+          <p class="tech-stack-title">Tecnologías principales</p>
+          <div class="tech-stack-list">
+            <div class="tech-item" *ngFor="let tech of technologies">
+              <i [class]="tech.icon"></i>
+              <span>{{ tech.name }}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

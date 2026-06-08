@@ -1,0 +1,38 @@
+<section class="projects-area" id="proyectos">
+  <div class="container-fluid projects-container">
+
+    <div class="section-header">
+      <span class="section-label">
+        <i class="ri-briefcase-4-line"></i> Proyectos destacados
+      </span>
+      <a href="#proyectos" class="see-all-link">
+        Ver todos los proyectos <i class="ri-arrow-right-line"></i>
+      </a>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-card" *ngFor="let project of projects">
+        <div class="project-img" [ngClass]="project.imgClass">
+          <img [src]="project.image" [alt]="project.title" />
+          <span class="project-badge" [ngClass]="project.badgeClass">{{ project.category }}</span>
+        </div>
+        <div class="project-body">
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+          <div class="project-tags">
+            <span *ngFor="let tag of project.tags">
+              <i [class]="tag.icon"></i> {{ tag.name }}
+            </span>
+          </div>
+          <div class="project-links" *ngIf="project.link">
+            <a [href]="project.link" target="_blank" class="btn-project-primary">
+              Ver proyecto <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

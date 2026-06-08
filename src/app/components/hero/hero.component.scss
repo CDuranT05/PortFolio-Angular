@@ -1,0 +1,42 @@
+.main-banner-area {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background-color: var(--dark-bg);
+  background-image:
+    radial-gradient(ellipse at 70% 50%, rgba(139,92,246,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(236,72,153,0.1) 0%, transparent 50%);
+  padding-top: 100px;
+  padding-bottom: 60px;
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+}
+.banner-container { padding-left: 60px; padding-right: 60px; width: 100%; }
+.main-banner-content { position: relative; z-index: 1; }
+.banner-label { display: block; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+h1 { font-size: 60px; font-weight: 800; line-height: 1.15; color: var(--white-color); margin-bottom: 24px; }
+p { font-size: 17px; line-height: 1.75; color: var(--text-color); margin-bottom: 36px; max-width: 520px; }
+.banner-buttons { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 40px; }
+.social-label { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+.sidebar-social-list {
+  display: flex; align-items: center; gap: 16px; list-style: none; padding: 0; margin: 0;
+  li a {
+    display: flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px; border-radius: 50%;
+    border: 1px solid var(--border-color); color: var(--text-color);
+    font-size: 18px; text-decoration: none; transition: var(--transition);
+    &:hover { border-color: var(--main-color); color: var(--main-color); background-color: rgba(139,92,246,0.1); transform: translateY(-3px); }
+  }
+}
+.main-banner-image img { max-width: 100%; height: auto; object-fit: cover; }
+@media (max-width: 991px) {
+  .main-banner-area { padding-top: 60px; padding-bottom: 40px; min-height: auto; }
+  .banner-container { padding-left: 24px; padding-right: 24px; }
+  h1 { font-size: 42px; }
+  .main-banner-image { margin-top: 40px; }
+}
+@media (max-width: 575px) {
+  h1 { font-size: 32px; }
+  .banner-buttons { flex-direction: column; }
+}
