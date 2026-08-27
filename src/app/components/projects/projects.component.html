@@ -9,33 +9,28 @@
 
     <div class="areas-grid">
 
-      <div class="area-column" *ngFor="let area of areas">
-        <div class="area-header">
-          <h3><i [class]="area.icon"></i> {{ area.title }}</h3>
-          <p>{{ area.subtitle }}</p>
-        </div>
-
-        <div class="area-projects">
-          <div class="project-card" *ngFor="let project of area.projects" (click)="openModal(project)">
-            <div class="project-img" [ngClass]="project.imgClass">
-              <img [src]="project.image" [alt]="project.title" />
-              <span class="project-badge" [ngClass]="project.badgeClass">{{ project.category }}</span>
-            </div>
-            <div class="project-body">
-              <h3>{{ project.title }}</h3>
-              <p>{{ project.description }}</p>
-              <div class="project-tags">
-                <span *ngFor="let tag of project.tags">
-                  <i [class]="tag.icon"></i> {{ tag.name }}
-                </span>
-              </div>
-              <div class="project-links">
-                <button type="button" class="btn-project-primary">
-                  Ver detalles <i class="ri-arrow-right-line"></i>
-                </button>
-              </div>
-            </div>
+      <div class="area-column" *ngFor="let area of areas; let i = index" [class.area-open]="openAreas[i]">
+        <button type="button" class="area-header" (click)="toggleArea(i)">
+          <div class="area-header-text">
+            <h3><i [class]="area.icon"></i> {{ area.title }}</h3>
+            <p>{{ area.subtitle }}</p>
           </div>
+          <span class="area-meta">
+            <span class="area-count">{{ area.projects.length }}</span>
+            <i class="ri-arrow-down-s-line area-chevron"></i>
+          </span>
+        </button>
+
+        <div class="area-projects" *ngIf="openAreas[i]">
+          <button type="button" class="project-row" *ngFor="let project of area.projects" (click)="openModal(project)">
+            <span class="project-row-name">{{ project.title }}</span>
+            <span class="project-row-tags">
+              <span class="project-row-tag" *ngFor="let tag of project.tags">
+                <i [class]="tag.icon"></i> {{ tag.name }}
+              </span>
+            </span>
+            <i class="ri-arrow-right-s-line project-row-arrow"></i>
+          </button>
         </div>
       </div>
 

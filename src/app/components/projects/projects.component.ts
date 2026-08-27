@@ -32,6 +32,11 @@ interface ProjectArea {
 })
 export class ProjectsComponent {
   selectedProject: Project | null = null;
+  openAreas: boolean[] = [true, false];
+
+  toggleArea(index: number): void {
+    this.openAreas[index] = !this.openAreas[index];
+  }
 
   areas: ProjectArea[] = [
     {
