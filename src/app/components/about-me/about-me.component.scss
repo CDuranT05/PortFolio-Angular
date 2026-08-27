@@ -6,11 +6,11 @@
   h2 { font-size: 38px; font-weight: 800; color: var(--white-color); margin-bottom: 20px; line-height: 1.2; }
   p { color: var(--text-color); line-height: 1.8; margin-bottom: 16px; }
 }
-.contain-aboutme-item { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.contain-aboutme-item { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .aboutme-item {
   background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px;
-  padding: 28px 24px; display: flex; flex-direction: column; align-items: center;
-  text-align: center; transition: var(--transition); width: 200px; min-height: 200px;
+  padding: 28px 20px; display: flex; flex-direction: column; align-items: center;
+  text-align: center; transition: var(--transition); min-height: 200px;
   &:hover { border-color: var(--main-color); transform: translateY(-4px); box-shadow: 0 8px 32px rgba(139,92,246,0.15); }
 }
 .aboutme-image {
@@ -34,5 +34,5 @@
   i { font-size: 22px; }
   span { font-size: 13px; font-weight: 600; color: var(--text-color); white-space: nowrap; }
 }
-@media (max-width: 991px) { .aboutme-container { padding-left: 24px; padding-right: 24px; } .aboutme-section-content { padding-right: 0; margin-bottom: 40px; } .aboutme-item { width: calc(50% - 10px); min-height: auto; } }
-@media (max-width: 480px) { .aboutme-item { width: 100%; } }
+@media (max-width: 991px) { .aboutme-container { padding-left: 24px; padding-right: 24px; } .aboutme-section-content { padding-right: 0; margin-bottom: 40px; } .contain-aboutme-item { grid-template-columns: repeat(2, 1fr); } .aboutme-item { min-height: auto; } }
+@media (max-width: 480px) { .contain-aboutme-item { grid-template-columns: 1fr; } }
